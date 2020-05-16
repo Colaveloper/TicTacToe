@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="./Css/main.css" />
+    <script src="./Js/script.js" defer></script>
+    <!-- defer makes file.js load after the body section -->
+  </head>
+  <body>
+    <div class="first-page">
+      <div class="select-language">
+        <h1>Select language</h1>
+        <div class="languages">
+          <button id="italian">Italiano</button>
+          <button id="english">English</button>
+        </div>
+      </div>
+      <div class="game-previews">
+        <div class="tic-tac-toe-preview">
+          <img
+            src="/resources/tic-tac-toe-preview.jpg"
+            alt="Tic-tac-toe preview"
+          />
+          <h3>Tic-tac-toe</h3>
+        </div>
+      </div>
+    </div>
+    <div class="tic-tac-toe">
+      <div class="board" id="board">
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+      </div>
+      <div class="winning-message" id="winningMessage">
+        <div data-winning-message-text></div>
+        <button id="restartButton">Rigioca</button>
+      </div>
+    </div>
+  </body>
+</html>
+
+<!-- 
+Things to add:
+  transitions                             
+  first page with button to play
+  button to come back to main page
+  background and colors 
+  show winning row
+  scalable
+-->
