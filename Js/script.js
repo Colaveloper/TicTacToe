@@ -1,5 +1,7 @@
 const CircleClass = "circle";
 const XClass = "x";
+const hidden = "hidden";
+const visible = "visible";
 const winningCombinations = [
   [0, 1, 2],
   [3, 4, 5],
@@ -18,11 +20,24 @@ const winningMessageTextElement = document.querySelector(
 );
 const winningMessageElement = document.getElementById("winningMessage");
 const restartButton = document.getElementById("restartButton");
+const homeButton = document.getElementById("home");
+const firstPage = document.getElementById("firstPage");
+const tttButton = document.getElementById("tttButton");
+const ticTacToe = document.getElementById("tic-tac-toe");
+const itButton = document.getElementById("italian");
+const enButton = document.getElementById("english");
 let circleTurn;
-
-startGame();
-
+let language;
 restartButton.addEventListener("click", startGame);
+homeButton.addEventListener("click", comeBackHome);
+tttButton.addEventListener("click", openTtt);
+itButton.addEventListener("click", setLanguage(italian));
+enButton.addEventListener("click", setLanguage(english));
+
+function setLanguage(languageHandler) {
+  language = languageHandler;
+  console.log(language);
+}
 
 function startGame() {
   circleTurn = false;
@@ -77,13 +92,19 @@ function checkWin(currentClass) {
   });
 }
 
-function endgame(draw) {
+function endgame(draw, language) {
   if (draw) {
     winningMessageTextElement.innerText = "Pareggio!";
   } else {
     winningMessageTextElement.innerText = `${circleTurn ? "O" : "X"} vince!`;
   }
+  if (draw) {
+    winningMessageTextElement.innerText = "Draw!";
+  } else {
+    winningMessageTextElement.innerText = `${circleTurn ? "O" : "X"} won!`;
+  }
   winningMessageElement.classList.add("show");
+  console.log(language);
 }
 
 function isDraw() {
@@ -92,4 +113,19 @@ function isDraw() {
       cell.classList.contains(XClass) || cell.classList.contains(CircleClass)
     );
   });
+}
+
+function openTtt() {
+  startGame();
+  firstPage.classList.remove(visible);
+  firstPage.classList.add(hidden);
+  ticTacToe.classList.remove(hidden);
+  ticTacToe.classList.add(visible);
+}
+
+function comeBackHome() {
+  firstPage.classList.remove(hidden);
+  firstPage.classList.add(visible);
+  ticTacToe.classList.remove(visible);
+  ticTacToe.classList.add(hidden);
 }
