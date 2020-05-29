@@ -24,20 +24,11 @@ const homeButton = document.getElementById("home");
 const firstPage = document.getElementById("firstPage");
 const tttButton = document.getElementById("tttButton");
 const ticTacToe = document.getElementById("tic-tac-toe");
-const itButton = document.getElementById("italian");
-const enButton = document.getElementById("english");
 let circleTurn;
-let language;
+let language = "english";
 restartButton.addEventListener("click", startGame);
 homeButton.addEventListener("click", comeBackHome);
 tttButton.addEventListener("click", openTtt);
-itButton.addEventListener("click", setLanguage(italian));
-enButton.addEventListener("click", setLanguage(english));
-
-function setLanguage(languageHandler) {
-  language = languageHandler;
-  console.log(language);
-}
 
 function startGame() {
   circleTurn = false;
@@ -92,19 +83,21 @@ function checkWin(currentClass) {
   });
 }
 
-function endgame(draw, language) {
-  if (draw) {
-    winningMessageTextElement.innerText = "Pareggio!";
+function endgame(draw) {
+  if (language == "italian") {
+    if (draw) {
+      winningMessageTextElement.innerText = "Pareggio!";
+    } else {
+      winningMessageTextElement.innerText = `${circleTurn ? "O" : "X"} vince!`;
+    }
   } else {
-    winningMessageTextElement.innerText = `${circleTurn ? "O" : "X"} vince!`;
-  }
-  if (draw) {
-    winningMessageTextElement.innerText = "Draw!";
-  } else {
-    winningMessageTextElement.innerText = `${circleTurn ? "O" : "X"} won!`;
+    if (draw) {
+      winningMessageTextElement.innerText = "Draw!";
+    } else {
+      winningMessageTextElement.innerText = `${circleTurn ? "O" : "X"} won!`;
+    }
   }
   winningMessageElement.classList.add("show");
-  console.log(language);
 }
 
 function isDraw() {
@@ -128,4 +121,24 @@ function comeBackHome() {
   firstPage.classList.add(visible);
   ticTacToe.classList.remove(visible);
   ticTacToe.classList.add(hidden);
+}
+
+// Now on I'll care bout languages
+
+document.querySelector("#italian").addEventListener("click", italian);
+document.querySelector("#english").addEventListener("click", english);
+
+function italian() {
+  document.querySelector("#select-language").textContent = "Cambia la lingua";
+  document.querySelector("#ttt-name").textContent = "Tris";
+  document.querySelector("#restartButton").textContent = "Rigioca";
+  document.querySelector("#home").textContent = "Esci";
+  language = "italian";
+}
+function english() {
+  document.querySelector("#select-language").textContent = "Select language";
+  document.querySelector("#ttt-name").textContent = "Tic-tac-toe";
+  document.querySelector("#restartButton").textContent = "Play again";
+  document.querySelector("#home").textContent = "Home";
+  language = "english";
 }

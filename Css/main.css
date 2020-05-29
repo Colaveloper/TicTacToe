@@ -160,15 +160,19 @@ body {
 
 .select-language {
   float: left;
-  display: none;
 }
 
 .ttt-image {
+  margin-top: 0.5em;
   height: 3em;
 }
 
 .game-previews {
   float: right;
+}
+
+.tic-tac-toe-preview {
+  width: 8em;
 }
 
 .winning-buttons {
@@ -197,4 +201,9 @@ body {
 .myButton:active {
   position: relative;
   top: 1px;
+}
+
+.message {
+  position: absolute;
+  bottom: 5%;
 }

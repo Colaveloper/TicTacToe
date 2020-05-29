@@ -12,7 +12,7 @@
   <body>
     <div class="first-page visible" id="firstPage">
       <div class="select-language">
-        <h1>Select language</h1>
+        <h1 id="select-language">Select language</h1>
         <div class="languages">
           <button id="italian">Italiano</button>
           <button id="english">English</button>
@@ -25,9 +25,11 @@
             alt="Tic-tac-toe preview"
             class="ttt-image"
           />
-          <h3>Tic-tac-toe</h3>
-        </button>
+          <h3 id='ttt-name'>Tic-tac-toe</h3>
+        
       </div>
+       <p class='message'> This shit was meant to be a multigame site, but in the meantime I changed my
+      style so much that I preferred to leave it shitty</p>
     </div>
     <div class="tic-tac-toe hidden" id="tic-tac-toe">
       <div class="board" id="board">
@@ -44,8 +46,8 @@
       <div class="winning-message" id="winningMessage">
         <div data-winning-message-text></div>
         <div class="winning-buttons">
-          <button class="myButton" id="restartButton">Rigioca</button>
-          <button class="myButton" id="home">Esci</button>
+          <button class="myButton" id="restartButton">Play again</button>
+          <button class="myButton" id="home">Home</button>
         </div>
       </div>
     </div>
